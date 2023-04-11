@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\ShoppingMall.Models\ShoppingMall.Models.csproj" />
   </ItemGroup>
 
 </Project>

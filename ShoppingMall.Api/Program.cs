@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using ShoppingMall.Api.Data;
+using ShoppingMall.Api.Repositories;
+using ShoppingMall.Api.Repositories.Contracts;
 using System.Text.Json.Serialization;
 
 
@@ -26,6 +28,7 @@ namespace ShoppingMall.Api
             //To give access to IHttpContextAccessor for Audit Data with IAuditable
             builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
