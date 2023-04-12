@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Net.Http.Headers;
 using ShoppingMall.Api.Data;
 using ShoppingMall.Api.Repositories;
 using ShoppingMall.Api.Repositories.Contracts;
@@ -39,6 +40,11 @@ namespace ShoppingMall.Api
                 app.UseSwaggerUI();
             }
 
+            app.UseCors(policy =>
+            policy.WithOrigins("https://localhost:7016", "https://localhost:7016")
+                .AllowAnyMethod()
+                .WithHeaders(HeaderNames.ContentType)
+            );
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

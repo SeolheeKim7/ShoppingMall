@@ -5,9 +5,9 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingMall.Api", "ShoppingMall.Api\ShoppingMall.Api.csproj", "{DBFDC515-80F0-4DCC-97E1-F20CDC6BCB26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingMall.Web", "ShoppingMall.Web\ShoppingMall.Web.csproj", "{D1F21D5F-4D4B-491B-ABCD-306E6B1F89DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingMall.Web", "ShoppingMall.Web\ShoppingMall.Web.csproj", "{D1F21D5F-4D4B-491B-ABCD-306E6B1F89DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingMall.Models", "ShoppingMall.Models\ShoppingMall.Models.csproj", "{2EB7CFD3-1D08-46BE-92FD-14D8101CC61D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShoppingMall.Models", "ShoppingMall.Models\ShoppingMall.Models.csproj", "{2EB7CFD3-1D08-46BE-92FD-14D8101CC61D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
