@@ -30,6 +30,7 @@ namespace ShoppingMall.Api
             builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
+            builder.Services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
 
             var app = builder.Build();
 

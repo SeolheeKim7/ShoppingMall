@@ -16,6 +16,7 @@ namespace ShoppingMall.Web
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7056/") });
             builder.Services.AddScoped<IProductService, ProductService>();
+            
 
             await builder.Build().RunAsync();
         }

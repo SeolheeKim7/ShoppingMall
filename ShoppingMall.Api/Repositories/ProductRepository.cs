@@ -18,14 +18,16 @@ namespace ShoppingMall.Api.Repositories
             return categories;
         }
 
-        public Task<ProductCategory> GetCategory(int id)
+        public async Task<ProductCategory> GetCategory(int id)
         {
-            throw new NotImplementedException();
+            var category = await shoppingMallContext.ProductCategorys.SingleOrDefaultAsync(c => c.Id == id);
+            return category;
         }
 
-        public Task<Product> GetItem(int id)
+        public async Task<Product> GetItem(int id)
         {
-            throw new NotImplementedException();
+            var product = await shoppingMallContext.Products.FindAsync(id);
+            return product;
         }
 
         public async Task<IEnumerable<Product>> GetItems()
