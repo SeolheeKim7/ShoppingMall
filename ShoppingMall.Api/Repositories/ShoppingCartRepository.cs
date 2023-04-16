@@ -43,9 +43,15 @@ namespace ShoppingMall.Api.Repositories
             return null;
         }
 
-        public Task<CartItem> DeleteItem(int id)
+        public async Task<CartItem> DeleteItem(int id)
         {
-            throw new NotImplementedException();
+            var item = await this.shoppingMallContext.CartItems.FindAsync(id);
+            if (item != null)
+            {
+                this.shoppingMallContext.CartItems.Remove(item);
+                await this.shoppingMallContext.SaveChangesAsync();
+            }
+            return item;
         }
 
         public async Task<CartItem> GetItem(int id)
