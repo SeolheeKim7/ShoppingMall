@@ -1,4 +1,4 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@*<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">ShoppingMall.Web</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -25,7 +25,54 @@
             </NavLink>
         </div>
     </nav>
-</div>
+</div>*@
+
+@*<nav class="">*@
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="">SH SHOP</a>
+    <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>*@
+    <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" style="padding:0px">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="counter" style="padding:0px">Counter</a></li>
+            <li class="nav-item"><a class="nav-link" href="fetchdata" style="padding:0px">Fetch data</a></li>
+                
+            </ul>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+        </div>
+    </div>
+@*</nav>*@
+
+@*<a class="navbar-brand" href="">
+    SH SHOP
+</a>
+<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+    <span class="navbar-toggler-icon"></span>
+</button>
+<div class="@NavMenuCssClass navbar-collapse collapse  d-sm-inline-flex justify-content-between" @onclick="ToggleNavMenu" id="navbarColor03">
+    <ul class="row flex-row navbar-nav d-flex justify-content-center align-items-center flex-grow-1">
+        <li class="nav-item">
+            <NavLink class="nav-link text-dark" href="" Match="NavLinkMatch.All">Home</NavLink>
+        </li>
+
+        <li class="nav-item">
+            <NavLink class="nav-link text-dark" href="counter">Counter</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link text-dark" href="fetchdata">Fetch data</NavLink>
+        </li>
+    </ul>
+</div>*@
+
 
 @code {
     private bool collapseNavMenu = true;
