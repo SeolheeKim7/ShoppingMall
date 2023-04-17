@@ -84,9 +84,16 @@ namespace ShoppingMall.Api.Repositories
                           }).ToListAsync();
         }
 
-        public Task<CartItem> UpdateQty(int id, CartItemQtyUpdateDto cartItemQtyUpdateDto)
+        public async Task<CartItem> UpdateQty(int id, CartItemQtyUpdateDto cartItemQtyUpdateDto)
         {
-            throw new NotImplementedException();
+            var item = await this.shoppingMallContext.CartItems.FindAsync(id);
+            if (item != null)
+            {
+                item.Qty = cartItemQtyUpdateDto.Qty;
+                await this.shoppingMallContext.SaveChangesAsync();
+                return item;
+            }
+            return null;
         }
     }
 }
