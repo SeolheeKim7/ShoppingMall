@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Numerics;
 
 namespace ShoppingMall.Api.Entities
 {
@@ -15,6 +16,7 @@ namespace ShoppingMall.Api.Entities
         public int Qty { get; set;}
         public int CategoryId { get; set; }
 
+        [ForeignKey("CategoryId")]
         public ProductCategory ProductCategory { get; set; }
 
         public ICollection<CartItem> CartItems { get; set; }
