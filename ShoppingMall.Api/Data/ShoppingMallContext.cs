@@ -286,6 +286,108 @@ namespace ShoppingMall.Api.Data
                 Qty = 150,
                 CategoryId = 4
             });
+            //Art Category
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 24,
+                Name = "Nemo",
+                Description = "Playful Nemo by Tera",
+                ImageURL = "/Images/Art/Art1.png",
+                Price = 100,
+                Qty = 50,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 25,
+                Name = "Friend",
+                Description = "Colorful fish and a crab by Tera",
+                ImageURL = "/Images/Art/Art2.png",
+                Price = 150,
+                Qty = 60,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 26,
+                Name = "Scary dragon",
+                Description = "Fearsome and intimidating dragon by Tera",
+                ImageURL = "/Images/Art/Art3.png",
+                Price = 200,
+                Qty = 70,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 27,
+                Name = "Harry",
+                Description = "Adorable and charming little bird by Tera",
+                ImageURL = "/Images/Art/Art4.png",
+                Price = 120,
+                Qty = 120,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 28,
+                Name = "Furry the bear",
+                Description = "Cuddly and huggable teddy bear by Tera",
+                ImageURL = "/Images/Art/Art5.png",
+                Price = 200,
+                Qty = 100,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 29,
+                Name = "Totoro",
+                Description = "My Neighbor Totoro by Teri",
+                ImageURL = "/Images/Art/Art6.png",
+                Price = 50,
+                Qty = 150,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 30,
+                Name = "Colorful parrot",
+                Description = "Vibrant and colorful parrot by Teri",
+                ImageURL = "/Images/Art/Art7.png",
+                Price = 50,
+                Qty = 150,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 31,
+                Name = "My friend",
+                Description = "Bright and bubbly Iris by Teri",
+                ImageURL = "/Images/Art/Art8.png",
+                Price = 50,
+                Qty = 150,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 32,
+                Name = "The trio",
+                Description = "Having fun together by Teri",
+                ImageURL = "/Images/Art/Art9.png",
+                Price = 50,
+                Qty = 150,
+                CategoryId = 5
+            });
+            modelBuilder.Entity<Product>().HasData(new Product
+            {
+                Id = 33,
+                Name = "Scoccer Player",
+                Description = "A skilled athlete with a passion",
+                ImageURL = "/Images/Art/Art10.png",
+                Price = 50,
+                Qty = 150,
+                CategoryId = 5
+            });
+            
 
             //Add users
             modelBuilder.Entity<User>().HasData(new User
@@ -318,22 +420,32 @@ namespace ShoppingMall.Api.Data
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 1,
-                Name = "Beauty"
+                Name = "Beauty",
+                IconCSS = "fas fa-spa"
             });
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 2,
-                Name = "Furniture"
+                Name = "Furniture",
+                IconCSS = "fas fa-couch"
             });
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 3,
-                Name = "Electronics"
+                Name = "Electronics",
+                IconCSS = "fas fa-headphones"
             });
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 4,
-                Name = "Shoes"
+                Name = "Shoes",
+                IconCSS = "fas fa-shoe-prints"
+            });
+            modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
+            {
+                Id = 5,
+                Name = "Art",
+                IconCSS = "fas fa-palette" 
             });
 
 
