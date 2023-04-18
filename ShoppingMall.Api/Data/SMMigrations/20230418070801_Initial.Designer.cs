@@ -11,7 +11,7 @@ using ShoppingMall.Api.Data;
 namespace ShoppingMall.Api.Data.SMMigrations
 {
     [DbContext(typeof(ShoppingMallContext))]
-    [Migration("20230411015100_Initial")]
+    [Migration("20230418070801_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -334,6 +334,106 @@ namespace ShoppingMall.Api.Data.SMMigrations
                             Name = "Birkenstock Sandles",
                             Price = 50m,
                             Qty = 150
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CategoryId = 5,
+                            Description = "Playful Nemo by Tera",
+                            ImageURL = "/Images/Art/Art1.png",
+                            Name = "Nemo",
+                            Price = 100m,
+                            Qty = 50
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CategoryId = 5,
+                            Description = "Colorful fish and a crab by Tera",
+                            ImageURL = "/Images/Art/Art2.png",
+                            Name = "Friend",
+                            Price = 150m,
+                            Qty = 60
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CategoryId = 5,
+                            Description = "Fearsome and intimidating dragon by Tera",
+                            ImageURL = "/Images/Art/Art3.png",
+                            Name = "Scary dragon",
+                            Price = 200m,
+                            Qty = 70
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CategoryId = 5,
+                            Description = "Adorable and charming little bird by Tera",
+                            ImageURL = "/Images/Art/Art4.png",
+                            Name = "Harry",
+                            Price = 120m,
+                            Qty = 120
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CategoryId = 5,
+                            Description = "Cuddly and huggable teddy bear by Tera",
+                            ImageURL = "/Images/Art/Art5.png",
+                            Name = "Furry the bear",
+                            Price = 200m,
+                            Qty = 100
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CategoryId = 5,
+                            Description = "My Neighbor Totoro by Teri",
+                            ImageURL = "/Images/Art/Art6.png",
+                            Name = "Totoro",
+                            Price = 50m,
+                            Qty = 150
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CategoryId = 5,
+                            Description = "Vibrant and colorful parrot by Teri",
+                            ImageURL = "/Images/Art/Art7.png",
+                            Name = "Colorful parrot",
+                            Price = 50m,
+                            Qty = 150
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CategoryId = 5,
+                            Description = "Bright and bubbly Iris by Teri",
+                            ImageURL = "/Images/Art/Art8.png",
+                            Name = "My friend",
+                            Price = 50m,
+                            Qty = 150
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CategoryId = 5,
+                            Description = "Having fun together by Teri",
+                            ImageURL = "/Images/Art/Art9.png",
+                            Name = "The trio",
+                            Price = 50m,
+                            Qty = 150
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CategoryId = 5,
+                            Description = "A skilled athlete with a passion",
+                            ImageURL = "/Images/Art/Art10.png",
+                            Name = "Scoccer Player",
+                            Price = 50m,
+                            Qty = 150
                         });
                 });
 
@@ -342,6 +442,9 @@ namespace ShoppingMall.Api.Data.SMMigrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("IconCSS")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
@@ -354,22 +457,32 @@ namespace ShoppingMall.Api.Data.SMMigrations
                         new
                         {
                             Id = 1,
+                            IconCSS = "fas fa-spa",
                             Name = "Beauty"
                         },
                         new
                         {
                             Id = 2,
+                            IconCSS = "fas fa-couch",
                             Name = "Furniture"
                         },
                         new
                         {
                             Id = 3,
+                            IconCSS = "fas fa-headphones",
                             Name = "Electronics"
                         },
                         new
                         {
                             Id = 4,
+                            IconCSS = "fas fa-shoe-prints",
                             Name = "Shoes"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            IconCSS = "fas fa-palette",
+                            Name = "Art"
                         });
                 });
 

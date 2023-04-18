@@ -14,7 +14,8 @@ namespace ShoppingMall.Api.Data.SMMigrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    IconCSS = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -106,23 +107,28 @@ namespace ShoppingMall.Api.Data.SMMigrations
 
             migrationBuilder.InsertData(
                 table: "ProductCategorys",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Beauty" });
+                columns: new[] { "Id", "IconCSS", "Name" },
+                values: new object[] { 1, "fas fa-spa", "Beauty" });
 
             migrationBuilder.InsertData(
                 table: "ProductCategorys",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 2, "Furniture" });
+                columns: new[] { "Id", "IconCSS", "Name" },
+                values: new object[] { 2, "fas fa-couch", "Furniture" });
 
             migrationBuilder.InsertData(
                 table: "ProductCategorys",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 3, "Electronics" });
+                columns: new[] { "Id", "IconCSS", "Name" },
+                values: new object[] { 3, "fas fa-headphones", "Electronics" });
 
             migrationBuilder.InsertData(
                 table: "ProductCategorys",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 4, "Shoes" });
+                columns: new[] { "Id", "IconCSS", "Name" },
+                values: new object[] { 4, "fas fa-shoe-prints", "Shoes" });
+
+            migrationBuilder.InsertData(
+                table: "ProductCategorys",
+                columns: new[] { "Id", "IconCSS", "Name" },
+                values: new object[] { 5, "fas fa-palette", "Art" });
 
             migrationBuilder.InsertData(
                 table: "Products",
@@ -238,6 +244,56 @@ namespace ShoppingMall.Api.Data.SMMigrations
                 table: "Products",
                 columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
                 values: new object[] { 23, 4, "Birkenstock Sandles - available in most sizes", "/Images/Shoes/Shoes6.png", "Birkenstock Sandles", 50m, null, 150 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 24, 5, "Playful Nemo by Tera", "/Images/Art/Art1.png", "Nemo", 100m, null, 50 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 25, 5, "Colorful fish and a crab by Tera", "/Images/Art/Art2.png", "Friend", 150m, null, 60 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 26, 5, "Fearsome and intimidating dragon by Tera", "/Images/Art/Art3.png", "Scary dragon", 200m, null, 70 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 27, 5, "Adorable and charming little bird by Tera", "/Images/Art/Art4.png", "Harry", 120m, null, 120 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 28, 5, "Cuddly and huggable teddy bear by Tera", "/Images/Art/Art5.png", "Furry the bear", 200m, null, 100 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 29, 5, "My Neighbor Totoro by Teri", "/Images/Art/Art6.png", "Totoro", 50m, null, 150 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 30, 5, "Vibrant and colorful parrot by Teri", "/Images/Art/Art7.png", "Colorful parrot", 50m, null, 150 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 31, 5, "Bright and bubbly Iris by Teri", "/Images/Art/Art8.png", "My friend", 50m, null, 150 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 32, 5, "Having fun together by Teri", "/Images/Art/Art9.png", "The trio", 50m, null, 150 });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CategoryId", "Description", "ImageURL", "Name", "Price", "ProductCategoryId", "Qty" },
+                values: new object[] { 33, 5, "A skilled athlete with a passion", "/Images/Art/Art10.png", "Scoccer Player", 50m, null, 150 });
 
             migrationBuilder.InsertData(
                 table: "Users",

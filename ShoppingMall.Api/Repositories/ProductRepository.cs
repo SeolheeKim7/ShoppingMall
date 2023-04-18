@@ -35,5 +35,13 @@ namespace ShoppingMall.Api.Repositories
             var products = await this.shoppingMallContext.Products.ToListAsync();
             return products;
         }
+
+        public async Task<IEnumerable<Product>> GetItemsByCategory(int id)
+        {
+            var products = await (from product in shoppingMallContext.Products
+                                where product.CategoryId == id
+                                select product).ToListAsync();
+            return products;
+        }
     }
 }

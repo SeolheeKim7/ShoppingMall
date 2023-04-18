@@ -5,6 +5,16 @@ namespace ShoppingMall.Api.Extensions
 {
     public static class DtoConversions
     {
+        public static IEnumerable<ProductCategoryDto> ConvertToDto(this IEnumerable<ProductCategory> productCategories)
+        {
+            return (from ProductCategory in productCategories
+                    select new ProductCategoryDto
+                    {
+                        Id = ProductCategory.Id,
+                        Name = ProductCategory.Name,
+                        IconCSS = ProductCategory.IconCSS
+                    }).ToList();
+        }
         public static IEnumerable<ProductDto> ConvertToDto(this IEnumerable<Product> products,
                                                         IEnumerable<ProductCategory> productCategories)
         {
