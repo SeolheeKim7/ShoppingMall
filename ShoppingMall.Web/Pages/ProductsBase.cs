@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using ShoppingMall.Models.Dtos;
+using ShoppingMall.Web.Services;
 using ShoppingMall.Web.Services.Contracts;
 
 namespace ShoppingMall.Web.Pages
@@ -11,6 +12,10 @@ namespace ShoppingMall.Web.Pages
 
         [Inject]
         public IShoppingCartService ShoppingCartService { get; set; }
+        [Inject]
+        public IManageProductsLocalStorageService ManageProductsLocalStorageService { get; set; }
+        [Inject]
+        public IManageCartItemsLocalStorageService ManageCartItemsLocalStorageService { get; set; } 
 
         public IEnumerable<ProductDto> Products { get; set; }
 
@@ -22,8 +27,12 @@ namespace ShoppingMall.Web.Pages
         {
             try
             {
-                Products = await ProductService.GetItems();
-                var shoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
+                await ClearLocalStorage();
+
+                Products = await ManageProductsLocalStorageService.GetCollection();
+
+                var shoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
+                
                 var totalQty = shoppingCartItems.Sum(i => i.Qty);
 
                 ShoppingCartService.RaiseEventOnShoppingCartChanged(totalQty);
@@ -45,6 +54,11 @@ namespace ShoppingMall.Web.Pages
         protected string GetCategoryName(IGrouping<int, ProductDto> groupedProductDtos)
         {
             return groupedProductDtos.FirstOrDefault(pg => pg.CategoryId == groupedProductDtos.Key).CategoryName;
+        }
+        private async Task ClearLocalStorage()
+        {
+            await ManageProductsLocalStorageService.RemoveCollection();
+            await ManageCartItemsLocalStorageService.RemoveCollection();
         }
     }
 }

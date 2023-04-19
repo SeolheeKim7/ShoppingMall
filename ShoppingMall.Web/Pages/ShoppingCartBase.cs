@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using ShoppingMall.Models.Dtos;
+using ShoppingMall.Web.Services;
 using ShoppingMall.Web.Services.Contracts;
 
 namespace ShoppingMall.Web.Pages
@@ -11,6 +12,8 @@ namespace ShoppingMall.Web.Pages
         public IJSRuntime Js { get; set; }
         [Inject]
         public IShoppingCartService ShoppingCartService { get; set; }
+        [Inject]
+        public IManageCartItemsLocalStorageService ManageCartItemsLocalStorageService { get; set; } 
 
         public List<CartItemDto> ShoppingCartItems { get; set; }
 
@@ -23,7 +26,7 @@ namespace ShoppingMall.Web.Pages
         {
             try
             {
-                ShoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
+                ShoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
                 CartChanged();
             }
             catch (Exception ex)
@@ -34,7 +37,7 @@ namespace ShoppingMall.Web.Pages
         protected async Task DeleteCartItem_Click(int id)
         {
             var cartItemDto = await ShoppingCartService.DeleteItem(id);
-            RemoveCartItem(id);
+            await RemoveCartItem(id);
             CartChanged();
 
         }
@@ -50,7 +53,7 @@ namespace ShoppingMall.Web.Pages
                         Qty = qty
                     };
                     var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(updateItemDto);
-                    UpdateItemTotalPrice(returnedUpdateItemDto);
+                    await UpdateItemTotalPrice(returnedUpdateItemDto);
                     CartChanged();
                     await MakeUpdateQtyButtonVisible(id, false);
                 }
@@ -79,13 +82,15 @@ namespace ShoppingMall.Web.Pages
         {
             await Js.InvokeVoidAsync("MakeUpdateQtyButtonVisible", id, visible);
         }
-        private void UpdateItemTotalPrice(CartItemDto cartItemDto)
+        private async Task UpdateItemTotalPrice(CartItemDto cartItemDto)
         {
             var item = GetCartItem(cartItemDto.Id);
             if (item != null)
             {
                 item.TotalPrice =cartItemDto.Price * cartItemDto.Qty;
             }
+
+            await ManageCartItemsLocalStorageService.SaveCollection(ShoppingCartItems);
         }
         private void CalculateCartSummaryTotals()
         {
@@ -104,10 +109,12 @@ namespace ShoppingMall.Web.Pages
         {
             return ShoppingCartItems.FirstOrDefault(i => i.Id == id);
         }
-        private void RemoveCartItem(int id)
+        private async Task RemoveCartItem(int id)
         {
             var cartItemDto = GetCartItem(id);
             ShoppingCartItems.Remove(cartItemDto);
+
+            await ManageCartItemsLocalStorageService.SaveCollection(ShoppingCartItems);
         }
         private void CartChanged()
         {
