@@ -29,13 +29,13 @@ else
                                 Price: <b>@item.Price.ToString("C")</b>
                                 <input @oninput ="()=> UpdateQty_Input(item.Id)"
                                     type="number" @bind="@item.Qty" />
-                                <button data-itemId="@item.Id" class="btn btn-info btn-sm update-qty"
+                                <button data-itemId="@item.Id" class="btn btn-outline-secondary btn-sm update-qty"
                                     @onclick="(()=> UpdateQtyCartItem_Click(item.Id, item.Qty))"
                                 >Update Qty</button>
                             </span>
                             <div>
                                 <button @onclick="(() => DeleteCartItem_Click(item.Id))"
-                                        class="btn btn-danger sm">
+                                        class="btn btn-outline-secondary sm trash mt-2">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -47,7 +47,7 @@ else
                 <h5>Cart Summary</h5>
                 <div class="mt-2">
                     <div>Total - (@TotalQuantity items)&nbsp;<b>@TotalPrice</b></div>
-                    <a href="Checkout" class="btn btn-success">
+                    <a href="Checkout" class="btn btn-primary mt-2">
                         <span class="oi oi-credit-card"></span>&nbsp; Proceed to Checkout
                     </a>
                 </div>

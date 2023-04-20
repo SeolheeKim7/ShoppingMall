@@ -1,24 +1,39 @@
 ﻿@inherits ProductCategoriesNavMenuBase
 
-@if(ProductCategoryDtos == null && ErrorMessage == null)
+@if (ProductCategoryDtos == null && ErrorMessage == null)
 {
     <DisplaySpinner />
 }
-else if(ErrorMessage != null)
+else if (ErrorMessage != null)
 {
-    <DisplayError ErrorMessage="@ErrorMessage"/>
+    <DisplayError ErrorMessage="@ErrorMessage" />
 }
 else
 {
-    <div class="nav justify-content-between py-5">
-    @foreach (var productCategory in ProductCategoryDtos)
-    {
-        var link = "/ProductsByCategory/" + productCategory.Id;
-        <div class="nav-item">
-                <NavLink class="nav-link" href="@link">
-                @productCategory.Name</NavLink>
-                @*<span class="@productCategory.IconCSS"></span>&nbsp;*@
+    <section class="jumbotron mb-5" style="background-color:#E1D5C9;">
+        <div class="nav justify-content-between py-5 container">
+            @foreach (var productCategory in ProductCategoryDtos)
+            {
+                var link = "/ProductsByCategory/" + productCategory.Id;
+                <div class="nav-item">
+                    <NavLink class="nav-link h3 categoty-name" href="@link">
+                        @productCategory.Name
+                    </NavLink>
+                    @*<span class="@productCategory.IconCSS"></span>&nbsp;*@
+                </div>
+            }
         </div>
+    </section>
+}
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
     }
-    </div>
+
 }

@@ -26,3 +26,4 @@ namespace ShoppingMall.Web.Shared
         }
     }
 }
+
