@@ -19,7 +19,7 @@ Welcome to the Shopping Mall Application repository! This full-stack application
 - **RESTful Web API:** Implemented to ensure smooth communication between different components.
 
 ## Screenshots
-![Shopping Mall Screenshot](shopping mall_screenshot.png)
+![Shopping Mall Screenshot](path/to/shopping mall_screenshot.png)
 
 
 Happy coding! 🛍️
